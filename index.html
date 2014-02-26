@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Esempio di menu a scomparsa per sito web realizzato con JQuery sldeToggle e CSS. ">
+    <meta name="author" content="Giuseppe Garbin">
+    <title>Esplorando la proprietà CSS transform</title>
+
+    <!-- DEMO TEMPLATE STYLE -->
+    <link href="assets/css/demo.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS -->
+    <style type="text/css">
+
+    /* Impostazioni pagina demo */
+    body { background: #96281B; color: #FFFFFF; }
+    .description { margin-bottom:50px; text-align: center;}
+    .credits { margin-top: 50px; }
+    .section { margin: 75px 0px; }
+    
+    /* Proprietà base dell'elemento da trasformare */
+    .base {
+      width:150px;
+      height: 150px;
+      border: 2px solid #E74C3C;
+      margin: 50px auto;
+      padding: 50px 25px;
+      -webkit-transition: 0.5s ease-in-out;
+      -moz-transition: 0.5s ease-in-out;
+      -o-transition: 0.5s ease-in-out;
+      transition: 0.5s ease-in-out;
+    }
+    #rotate-dx:hover {
+      background-color: #E74C3C;
+      -webkit-transform: rotate(45deg);
+      -moz-transform:    rotate(45deg);
+      -ms-transform:     rotate(45deg);
+      -o-transform:      rotate(45deg);
+      transform:         rotate(45deg);
+    }
+    #rotate-sx:hover {
+      background-color: #E74C3C;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform:    rotate(-45deg);
+      -ms-transform:     rotate(-45deg);
+      -o-transform:      rotate(-45deg);
+      transform:         rotate(-45deg);
+    }
+    #scale-big:hover {
+      background-color: #E74C3C;
+      -webkit-transform: scale(1.5);
+      -moz-transform:    scale(1.5);
+      -ms-transform:     scale(1.5);
+      -o-transform:      scale(1.5);
+      transform:         scale(1.5);
+    }
+    #scale-small:hover {
+      background-color: #E74C3C;
+      -webkit-transform: scale(0.5);
+      -moz-transform:    scale(0.5);
+      -ms-transform:     scale(0.5);
+      -o-transform:      scale(0.5);
+      transform:         scale(0.5);
+    }
+    #scale-x:hover {
+      background-color: #E74C3C;
+      -webkit-transform: scaleX(0.5);
+      -moz-transform:    scaleX(0.5);
+      -ms-transform:     scaleX(0.5);
+      -o-transform:      scaleX(0.5);
+      transform:         scaleX(0.5);
+    }
+    #scale-y:hover {
+      background-color: #E74C3C;
+      -webkit-transform: scaleY(0.5);
+      -moz-transform:    scaleY(0.5);
+      -ms-transform:     scaleY(0.5);
+      -o-transform:      scaleY(0.5);
+      transform:         scaleY(0.5);
+    }
+    #scale-xy:hover {
+      background-color: #E74C3C;
+      -webkit-transform: scale(1.5, 0.5);
+      -moz-transform:    scale(1.5, 0.5);
+      -ms-transform:     scale(1.5, 0.5);
+      -o-transform:      scale(1.5, 0.5);
+      transform:         scale(1.5, 0.5);
+    }
+    #skew-x:hover {
+      background-color: #E74C3C;
+      -webkit-transform: skewX(10deg);
+      -moz-transform:    skewX(10deg);
+      -ms-transform:     skewX(10deg);
+      -o-transform:      skewX(10deg);
+      transform:         skewX(10deg);
+    }
+    #skew-x2:hover {
+      background-color: #E74C3C;
+      -webkit-transform: skewX(-10deg);
+      -moz-transform:    skewX(-10deg);
+      -ms-transform:     skewX(-10deg);
+      -o-transform:      skewX(-10deg);
+      transform:         skewX(-10deg);
+    }
+    #skew-y:hover {
+      background-color: #E74C3C;
+      -webkit-transform: skewY(10deg);
+      -moz-transform:    skewY(10deg);
+      -ms-transform:     skewY(10deg);
+      -o-transform:      skewY(10deg);
+      transform:         skewY(10deg);
+    }
+    #skew-y2:hover {
+      background-color: #E74C3C;
+      -webkit-transform: skewY(-10deg);
+      -moz-transform:    skewY(-10deg);
+      -ms-transform:     skewY(-10deg);
+      -o-transform:      skewY(-10deg);
+      transform:         skewY(-10deg);
+    }
+    #skew-xy:hover {
+      background-color: #E74C3C;
+      -webkit-transform: skew(10deg, 10deg);
+      -moz-transform:    skew(10deg, 10deg);
+      -ms-transform:     skew(10deg, 10deg);
+      -o-transform:      skew(10deg, 10deg);
+      transform:         skew(10deg, 10deg);
+    }
+    #skew-xy2:hover {
+      background-color: #E74C3C;
+      -webkit-transform: skew(-10deg, -10deg);
+      -moz-transform:    skew(-10deg, -10deg);
+      -ms-transform:     skew(-10deg, -10deg);
+      -o-transform:      skew(-10deg, -10deg);
+      transform:         skew(-10deg, -10deg);
+    }
+    #translate-x:hover {
+      background-color: #E74C3C;
+      -webkit-transform: translateX(20px);
+      -moz-transform:    translateX(20px);
+      -ms-transform:     translateX(20px);
+      -o-transform:      translateX(20px);
+      transform:         translateX(20px);
+    }
+    #translate-x2:hover {
+      background-color: #E74C3C;
+      -webkit-transform: translateX(-20px);
+      -moz-transform:    translateX(-20px);
+      -ms-transform:     translateX(-20px);
+      -o-transform:      translateX(-20px);
+      transform:         translateX(-20px);
+    }
+    #translate-y:hover {
+      background-color: #E74C3C;
+      -webkit-transform: translateY(20px);
+      -moz-transform:    translateY(20px);
+      -ms-transform:     translateY(20px);
+      -o-transform:      translateY(20px);
+      transform:         translateY(20px);
+    }
+    #translate-y2:hover {
+      background-color: #E74C3C;
+      -webkit-transform: translateY(-20px);
+      -moz-transform:    translateY(-20px);
+      -ms-transform:     translateY(-20px);
+      -o-transform:      translateY(-20px);
+      transform:         translateY(-20px);
+    }
+    #matrix:hover {
+      background-color: #E74C3C;
+      -webkit-transform: translate(50px, 50px) scale(0.75) rotate(90deg);
+      -moz-transform:    translate(50px, 50px) scale(0.75) rotate(90deg);
+      -ms-transform:     translate(50px, 50px) scale(0.75) rotate(90deg);
+      -o-transform:      translate(50px, 50px) scale(0.75) rotate(90deg);
+      transform:         translate(50px, 50px) scale(0.75) rotate(90deg);
+    }
+    
+  </style>
+
+  </head>
+  <body>
+
+    <div class="container text-center">
+      <div class="row description">
+          <h1>Esplorando la proprietà CSS transform</h1>
+        <p class="credits">Realizzato da <a href="http://www.giuseppegarbin.com">Giuseppe Garbin</a></p>
+      </div>
+
+      <div class="row section">
+        <h3>Rotate</h3>
+        <div class="base" id="rotate-dx"><p>45 gradi a destra</p></div>
+        <div class="base" id="rotate-sx"><p>45 gradi a sinistra</p></div>
+      </div>
+
+      <div class="row section">
+        <h3>Scale</h3>
+        <div class="base" id="scale-big"><p>Ingrandisci del doppio</p></div>
+        <div class="base" id="scale-small"><p>Rimpicciolisci della metà</p></div>
+        <div class="base" id="scale-x"><p>Scala solo larghezza</p></div>
+        <div class="base" id="scale-y"><p>Scala solo altezza</p></div>
+        <div class="base" id="scale-xy"><p>Scale diverse per larghezza e altezza</p></div>
+      </div>
+
+      <div class="row section">
+        <h3>Skew</h3>
+        <div class="base" id="skew-x"><p>Inclina X di 10 gradi</p></div>
+        <div class="base" id="skew-x2"><p>Inclina X di -10 gradi</p></div>
+        <div class="base" id="skew-y"><p>Inclina Y di 10 gradi</p></div>
+        <div class="base" id="skew-y2"><p>Inclina Y di -10 gradi</p></div>
+        <div class="base" id="skew-xy"><p>Inclina X e Y di 10 gradi</p></div>
+        <div class="base" id="skew-xy"><p>Inclina X e Y di -10 gradi</p></div>
+      </div>
+      
+      <div class="row section">
+        <h3>Translate</h3>
+        <div class="base" id="translate-x"><p>Sposta a destra</p></div>
+        <div class="base" id="translate-x2"><p>Sposta a sinistra</p></div>
+        <div class="base" id="translate-y"><p>Sposta in basso</p></div>
+        <div class="base" id="translate-y2"><p>Sposta in alto</p></div>
+      </div>
+      
+      <div class="row section">
+        <h3>Matrix</h3>
+        <div class="base" id="matrix"><p>Matrice</p></div>
+      </div>
+    </div>
+
+  </body>
+</html>
